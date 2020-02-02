@@ -1,0 +1,31 @@
+.sign-up-btn{
+    position: absolute;
+    bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 50%;
+  }
+  .sign-up-btn ion-button{
+    width: 100%;
+  }
+  ion-content{
+    font-family: ProximaNova-Bold;
+  }
+  ion-content h1{
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+  ion-content ion-label{
+    position: relative;
+    height: 80vh;
+    padding-top: 5vh;
+  }
+  .input_c{
+    border-bottom: 2px solid green; 
+    height: 40px; 
+    width: 80% !important; 
+    margin-left: 3px;
+  }

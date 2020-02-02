@@ -1,0 +1,55 @@
+ion-content{
+    font-family: ProximaNova-Bold;
+  }
+  ion-content h1{
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+  ion-content ion-label{
+    position: relative;
+    height: 80vh;
+    padding-top: 5vh;
+  }
+  ion-content ion-label img{
+    margin-top: 5vh;
+  
+  }
+  .slider{
+    height:90vh;
+    width:auto; 
+  }
+  
+  .slider ion-slide {
+    height: 90vh;
+    width: auto;
+    padding-left: 15px;
+  }
+  ion-slide{
+    position: relative;
+  }
+  .swiper-pagination {
+    bottom: 30px!important;
+  }
+  .swiper-pagination-bullet-active{
+    width: 20px!important;
+    height: 5px!important;
+    border-radius: 10px;
+  }
+  .sign-up-btn{
+    position: absolute;
+    bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 80%;
+  }
+  .sign-up-btn ion-button{
+    width: 100%;
+  }
+  
+  .bordered-btn{
+    --border-radius: 30px!important;
+  }
+  

@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      My Circle
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content>
+      <ion-toolbar>
+        <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="primary">
+          <ion-segment-button value="0">
+            <ion-label name="my_circle">Circle</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="1">
+              <ion-label name="request">Request</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="2">
+              <ion-label name="contacts">Contacts</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+    
+      
+      <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+        <ion-slide>
+          <div style="display: flex; flex-direction: column;">
+            <ion-list lines="none">  
+                <ion-item *ngFor="let circles of circleList">  
+                  <ion-card style="display: flex; flex-direction: row; padding: 10px !important; min-width: 340px !important;">                      
+                    <img src="{{circles.img}}" style="width: 100px !important; margin-right: 20% !important;">
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                      <ion-label style="font-size: 20px !important;">{{circles.name}}</ion-label>  
+                      <ion-label style="font-size: 12px; margin-top: 10px;">{{circles.price}}$</ion-label>  
+                      <div style="display: flex; flex-direction: row; align-content: center; margin-top: 20px;">
+                          <ion-label style="font-size: 12px;" color="secondary">History</ion-label>  
+                          <ion-label style="font-size: 12px; margin-left: 25px;" color="danger">Unfriend</ion-label>  
+                      </div>
+                    </div>
+                  </ion-card>
+                </ion-item>  
+              </ion-list>  
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div style="display: flex; flex-direction: column;">
+                <ion-list lines="none">  
+                    <ion-item *ngFor="let requests of requestList">  
+                        <ion-card style="display: flex; flex-direction: row; padding: 10px !important;min-width: 340px !important;">                      
+                          <img src="{{requests.img}}" style="width: 100px !important; margin-right: 15% !important;">
+                          <div style="display: flex; flex-direction: column; justify-content: center;">
+                            <ion-label style="font-size: 20px !important;">{{requests.name}}</ion-label>  
+                            <ion-label style="font-size: 12px; margin-top: 10px;">{{requests.requestDay}} ago</ion-label>  
+                            <div style="display: flex; flex-direction: row; align-content: center; margin-top: 30px;">
+                                <ion-icon name="checkmark" color="success"></ion-icon>
+                                <ion-label style="font-size: 12px; margin-left: 5px;" color="success">Accept</ion-label>  
+                                <ion-icon name="close" style="margin-left: 15px;" color="danger"></ion-icon>
+                                <ion-label style="font-size: 12px; margin-left: 5px;" color="danger">Delete</ion-label>  
+                            </div>
+                          </div>
+                        </ion-card>
+                    </ion-item>  
+                  </ion-list>  
+                </div>
+        </ion-slide>
+        <ion-slide>
+            <div style="display: flex; flex-direction: column;">
+                <ion-list lines="none">  
+                    <ion-item *ngFor="let contact of contactList">  
+                        <ion-card style="display: flex; flex-direction: row; padding: 10px !important; min-width: 340px !important;">                      
+                          <img *ngIf="contact.image" [src]="contact.image" style="width: 100px !important; margin-right: 15% !important;">    
+                          <div style="display: flex; flex-direction: column; justify-content: center;">
+                            <ion-label style="font-size: 20px !important;">{{contact.name}}</ion-label>  
+                            <ion-label style="font-size: 15px; margin-top: 10px;">{{contact.number}}</ion-label>  
+                            <div style="display: flex; flex-direction: row; align-content: center; margin-top: 30px;">
+                                <ion-icon name="checkmark" color="primary"></ion-icon>
+                                <ion-label style="margin-left: 5px;font-size: 18px;" color="primary">Invite</ion-label>  
+                            </div>
+                          </div>
+                        </ion-card>
+                    </ion-item>  
+                  </ion-list>  
+                </div>
+        </ion-slide>
+      </ion-slides>
+    
+</ion-content>

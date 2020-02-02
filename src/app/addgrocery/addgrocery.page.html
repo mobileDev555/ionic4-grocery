@@ -1,0 +1,138 @@
+
+<ion-content padding>
+  <div style="display: flex; flex-direction: row; justify-content: space-between;">
+    <ion-label color="secondary" style="font-size: 20px; font-weight: bold;">Add new item</ion-label>
+    <ion-icon name="close" (click)="goBack()"></ion-icon>
+  </div>
+  
+<form #newItemForm="ngForm" (ngSubmit)="this.onItemSubmit(newItemForm)">
+
+  <!-- ====================== image rectangle -->
+  <div style="margin-top: 20px !important;">
+    <ion-label color="default">Image</ion-label>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="display: flex; flex-direction: row;">
+      <ion-card style="border: 1px solid green; width: 100px; height: 100px; margin-top: 5px !important;" (click)="selectImage(1)">
+        <img *ngIf="!croppedImagepath1.length" src="assets/png/icn_image_upload.png" />
+        <img *ngIf="croppedImagepath1.length" [src]="croppedImagepath1"/>
+      </ion-card>
+      <ion-card style="border: 1px solid green; width: 100px; height: 100px; margin-top: 5px !important;" (click)="selectImage(2)">
+        <img *ngIf="!croppedImagepath2.length" src="assets/png/icn_image_upload.png" />
+        <img *ngIf="croppedImagepath2.length" [src]="croppedImagepath2"/>
+      </ion-card>
+      <ion-card style="border: 1px solid green; width: 100px; height: 100px; margin-top: 5px !important;" (click)="selectImage(3)">
+        <img *ngIf="!croppedImagepath3.length" src="assets/png/icn_image_upload.png" />
+        <img *ngIf="croppedImagepath3.length" [src]="croppedImagepath3"/>
+      </ion-card>
+                
+    </div>
+    
+    <!-- <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 0px !important;">
+      <ion-card style="border: 1px solid green; width: 25px; height: 25px;">
+        <ion-icon name="add" style="margin-left: 5px; margin-top: 5px;"  (click)="getImage()"></ion-icon>
+      </ion-card>
+      <ion-card style="border: 1px solid green; width: 25px; height: 25px;" (click)="uploadFile()">
+        <ion-icon name="add" style="margin-left: 5px; margin-top: 5px;"></ion-icon>
+      </ion-card>
+      <ion-card style="border: 1px solid green; width: 25px; height: 25px;">
+        <ion-icon name="add" style="margin-left: 5px; margin-top: 5px;"></ion-icon>
+      </ion-card>
+    </div> -->
+  </div>
+
+  <!-- =================== name  -->
+  <div style="margin-top: 10px;">    
+    <ion-label color="secondary" >Name</ion-label>
+    <ion-card style="margin-right: 20%; height: 30px;">
+      <ion-input placeholder="Enter Name" name="name" style="border: 1px solid green;" required ngModel></ion-input>
+    </ion-card>
+  </div>
+
+  <!-- ======================== Quantity -->
+  <div>    
+    <ion-label>Quantity</ion-label>
+    <div style="display: flex; flex-direction: row;margin-top: -5px !important;">
+      <ion-card style="width: 60px; height: 30px;">
+        <ion-input type="number" name="quantity" required ngModel></ion-input>
+      </ion-card>
+      <ion-card style="width: 80px; height: 30px;">
+          <div>
+            <ion-select interface="popover" ngModel name="unit" required>
+              <ion-select-option value="bottle">Bottle</ion-select-option>
+              <ion-select-option value="litre">Litre</ion-select-option>
+              <ion-select-option value="gram">Gram</ion-select-option>
+              <ion-select-option value="metre">Metre</ion-select-option>
+              <ion-select-option value="pair">Pair</ion-select-option>
+            </ion-select>
+          </div>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- ========================= Store select  -->
+  <div>    
+    <ion-label>Stores<span style="font-size: 12px;">(Multiple stores can be selected)</span></ion-label>
+    <div style="display: flex; flex-direction: row; margin-top: -5px !important;">
+      <ion-card style="width: 160px; height: 30px;">
+          <div>
+            <ion-select multiple="true" name="shops" required ngModel>
+              <ion-select-option value="shops">Shoes</ion-select-option>
+              <ion-select-option value="clothes">Clothes</ion-select-option>
+              <ion-select-option value="shirt">Shirt</ion-select-option>
+              <ion-select-option value="cap">Cap</ion-select-option>
+              <ion-select-option value="costco">Costco</ion-select-option>
+            </ion-select>
+          </div>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- =========================  add notes -->
+  <div>    
+    <ion-label>Add notes</ion-label>
+    <div style="display: flex; flex-direction: row; margin-top: -5px !important;">
+      <ion-card style="margin-right: 30%;">
+          <div>
+            <ion-textarea rows="2" cols="45" name="description" ngModel></ion-textarea>
+          </div>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- ========================== sharing toggle button part  -->
+  <div>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+      <ion-label>Sharing</ion-label>
+      <ion-toggle color="secondary" [(ngModel)]="shared" name="shared">{{ shared }}</ion-toggle>
+<!-- ========================== friends tag part  -->
+      <ion-card style="width: 120px; height: 30px; margin-left: 30px;">
+          <div>
+            <ion-select interface="popover" name="tags" required ngModel>
+              <ion-select-option value="friends">My friends</ion-select-option>
+              <ion-select-option value="contacts">My contacts</ion-select-option>
+              <ion-select-option value="company">My company</ion-select-option>
+              <ion-select-option value="family">My family</ion-select-option>
+            </ion-select>
+          </div>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- ======================== Last date pick -->
+  <div>    
+      <ion-label>Last Date to pick up</ion-label>
+      <div style="display: flex; flex-direction: row;margin-top: -5px !important;">
+        <ion-card style="width: 150px; height: 30px;">
+          <ion-datetime min="1990-02" max="2020" displayFormat="DDD. MMM DD, YY" name="pickUpDate" ngModel></ion-datetime>
+        </ion-card>
+      </div>
+    </div>
+
+    <!-- ======================== save button -->
+  <div style="display: flex; justify-content: center; margin-top: 10px;"> 
+    <ion-button color="primary" type="submit">Save</ion-button>
+  </div>
+</form>
+
+</ion-content>

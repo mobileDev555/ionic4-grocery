@@ -1,0 +1,28 @@
+<ion-content scroll-y="false">
+  <ion-slides class="slider" pager="true" [options]="slideOpts">
+    <ion-slide padding>
+      <ion-label color="primary">
+        <h1>Never forget to buy anything ever again</h1>
+        
+        <img src="../../assets/icon/splash1.jpg">
+
+      </ion-label>
+    </ion-slide>
+    <ion-slide>
+      <ion-label color="primary">
+        <h1>Shop with friends</h1>
+        
+        <img src="../../assets/icon/splash2.jpg">
+      </ion-label>
+    </ion-slide>
+    <ion-slide center>
+      <ion-label color="primary">
+        <h1>Easy settlements</h1>             
+        <img src="../../assets/icon/splash3.jpg">  
+        <div class="sign-up-btn">
+          <ion-button class="bordered-btn" center color="primary" (click)="start()">Sign up</ion-button>
+        </div>
+      </ion-label> 
+    </ion-slide>
+  </ion-slides>
+</ion-content>

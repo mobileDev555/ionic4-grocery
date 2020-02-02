@@ -1,0 +1,7 @@
+{
+  "name": "doKaam",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

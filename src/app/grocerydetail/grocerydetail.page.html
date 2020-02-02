@@ -1,0 +1,79 @@
+
+<ion-content padding>
+    <!-- ========================= X button  -->
+      <div style="display: flex; flex-direction: row; justify-content: flex-end;">
+        <ion-icon name="close" (click)="goBack()"></ion-icon>
+      </div>
+
+      <!-- ======================  main image -->
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="../../assets/icon/icon_kroger.png" style="width: 120px !important;">
+        <div style="display: flex; flex-direction: row; justify-content: center; margin-top: -15px !important;">
+          <ion-button style="margin-top: 20px;">Check in</ion-button>
+        </div>
+      </div>
+
+      <!-- ===================  honey title part -->
+      <ion-label style="font-size: 20px; color: green; font-weight: bolder;">Honey Do's</ion-label>
+      <ion-toolbar>
+        <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="primary">
+          <ion-segment-button value="0">
+            <ion-label name="honey">Honey Do's</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="1">
+              <ion-label name="buddy">Buddy</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+    
+      <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+        <!-- ========================  Honey  -->
+        <ion-slide>
+          <div style="display: flex; flex-direction: column;">
+            <ion-list-header style="font-size: 20px; color: green; font-weight: bolder;">Honey Do's</ion-list-header> 
+            <ion-list lines="none">  
+                <ion-item *ngFor="let honeys of honeyList" style="margin-bottom: 10px !important;" (click)="gotoItemDetail()">  
+                  <ion-card style="display: flex; flex-direction: row; width: 100% !important; padding-left: 20px !important; padding-right: 20px !important; margin: 2px !important;">
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                      <ion-label style="font-size: 20px !important;">{{honeys.title}}</ion-label>  
+                      <ion-label style="font-size: 12px; margin-top: 10px;">{{honeys.count}}  {{honeys.unit}}</ion-label>  
+                      <div style="display: flex; flex-direction: row; align-content: center; margin-top: 30px;">
+                          <ion-icon name="checkmark" color="success"></ion-icon>
+                          <ion-label style="font-size: 12px; margin-left: 5px;" color="success">Pick up</ion-label>  
+                          <ion-icon name="close" style="margin-left: 15px;" color="danger"></ion-icon>
+                          <ion-label style="font-size: 12px; margin-left: 5px;" color="danger">Delete</ion-label>  
+                      </div>
+                    </div>
+                    <img src="{{honeys.img}}" style="width: 120px !important; margin-left: 10%;">
+                  </ion-card>
+                </ion-item>  
+              </ion-list>  
+            </div>
+        </ion-slide>
+
+        <!-- ===================  Buddy  -->
+        <ion-slide>
+            <div style="display: flex; flex-direction: column;">
+                <ion-list-header style="font-size: 20px; color: green; font-weight: bolder;">Buddy</ion-list-header> 
+                <ion-list lines="none">  
+                    <ion-item *ngFor="let buddys of buddyList" style="margin-bottom: 10px !important;">  
+                      <ion-card style="display: flex; flex-direction: row; width: 100% !important; padding-left: 20px !important; padding-right: 20px !important; margin: 2px !important;">
+                        <div style="display: flex; flex-direction: column; justify-content: center;">
+                          <ion-label style="font-size: 20px !important;">{{buddys.title}}</ion-label>  
+                          <ion-label style="font-size: 12px; margin-top: 10px;">{{buddys.count}}  {{buddys.unit}}</ion-label>  
+                          <div style="display: flex; flex-direction: row; align-content: center; margin-top: 30px;">
+                              <ion-icon name="checkmark" color="success"></ion-icon>
+                              <ion-label style="font-size: 12px; margin-left: 5px;" color="success">Pick up</ion-label>  
+                              <ion-icon name="close" style="margin-left: 15px;" color="danger"></ion-icon>
+                              <ion-label style="font-size: 12px; margin-left: 5px;" color="danger">Delete</ion-label>  
+                          </div>
+                        </div>
+                        <img src="{{buddys.img}}" style="width: 120px !important; margin-left: 10%;">
+                      </ion-card>
+                    </ion-item>  
+                  </ion-list>  
+                </div>
+        </ion-slide>
+      </ion-slides>
+    
+</ion-content>

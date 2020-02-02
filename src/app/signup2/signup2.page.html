@@ -1,0 +1,29 @@
+<ion-content padding center>
+    <ion-label color="primary">
+      <div style="display: flex; justify-content: center;margin-top: 20px;">
+        <h1 style="font-weight: bold;">Verify {{phoneNumber}}</h1>
+      </div>
+    </ion-label>
+  
+    <div style="margin-top: 30px;">
+        <ion-label>
+          Waiting to automatically detect a message sent to {{phoneNumber}}<ion-text color="secondary" routerLink="/signup1" routerDirection="root">Wrong number?</ion-text>
+        </ion-label>
+    </div>
+    
+
+    <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 30px !important;width: 100%;">
+      <div style="width: 40%; display: flex; flex-direction: row;">
+      <ion-input class="input_verify" [(ngModel)]="num1" autofocus="true" type="number" (ngModelChange)=confirmOTP($event) style="margin-right:10px;"></ion-input>
+      <ion-input class="input_verify" [(ngModel)]="num2" type="number" (ngModelChange)=confirmOTP($event) style="margin-right:10px;"></ion-input>
+      <ion-input class="input_verify" [(ngModel)]="num3" type="number" (ngModelChange)=confirmOTP($event) style="margin-right:10px;"></ion-input>
+      <ion-input class="input_verify" [(ngModel)]="num4" type="number" (ngModelChange)=confirmOTP($event)></ion-input>
+      </div>
+    </div>
+
+    <div class="sign-up-btn" *ngIf="flag">
+      <ion-button class="bordered-btn" center color="primary" (click)="resendSMS()">Resend SMS</ion-button>
+    </div>
+
+  </ion-content>
+  

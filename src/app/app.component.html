@@ -1,0 +1,53 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+          <ion-toolbar lines="none">
+              <ion-title style="padding-top: 50px !important;">
+                <div style="display: flex; align-items: center;">
+                  <ion-img src="../../assets/icon/icon_avatar.png" ></ion-img>
+                  
+                  <div style="display: flex; flex-direction: column; ">
+                      <ion-label style="margin-left: 20px !important;">Harvey</ion-label>
+                      <ion-label style="margin-left: 20px !important;font-size: 12px; margin-top: 5px !important;">886-25698745</ion-label>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: row;margin-top: 30px; margin-bottom: 20px;">
+                  <div style="display: flex; flex-direction: column; ">
+                      <ion-label style="margin-left: 20px !important; display: flex; justify-content: center;">$186</ion-label>
+                      <ion-label style="margin-left: 20px !important;">To Receive</ion-label>
+                  </div>
+                  <div style="display: flex; flex-direction: column;">
+                      <ion-label style="margin-left: 20px !important;display: flex; justify-content: center;">$200</ion-label>
+                      <ion-label style="margin-left: 20px !important;">To Pay</ion-label>
+                  </div>
+                </div>
+              </ion-title>
+            </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list padding>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" lines="none">
+            <ion-item lines="none" [routerLink]="p.url" [routerDirection]="''">
+              <ion-icon slot="start" [name]="p.icon" color="vibrant" ></ion-icon>
+              <ion-label>{{p.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        
+        <ion-list>
+            <div style="border: 2px solid green; width: 100%;"></div> 
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPageBottoms" lines="none">
+              <ion-item lines="none" [routerLink]="p.url" [routerDirection]="''">
+                <ion-icon slot="start" [name]="p.icon" color="vibrant" ></ion-icon>
+                <ion-label>{{p.title}}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+      </ion-content>
+
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

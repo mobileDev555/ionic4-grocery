@@ -1,0 +1,38 @@
+<ion-content padding>
+    <ion-label color="primary">
+      <div style="display: flex; justify-content: center;margin-top: 20px;">
+        <h1 style="font-weight: bold;">Verify you phone number</h1>
+      </div>
+    </ion-label>
+  
+    <div style="margin-top: 30px;">
+        <ion-label>
+          doKaam will send a SMS message(carrier charges may apply) to verify your phone number. Enter your country and phone number.
+        </ion-label>
+    </div>
+    
+
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 25px;"> 
+        <ion-select interface="popover" style="width: 80%; border-bottom: 2px solid green;">
+          <ion-select-option value="0">US</ion-select-option>
+          <ion-select-option value="1">LA</ion-select-option>
+          <ion-select-option value="2">UA</ion-select-option>
+        </ion-select>
+
+        <div style="display: flex; flex-direction: row; margin-top: 10px !important;width: 80%;">
+          <div>
+            <ion-input [(ngModel)]="countryCode" autofocus="true" type="number" ngModel required placeholder="+1" style="border-bottom: 2px solid green; height: 40px; width: 30% !important; margin-right: 10px;"></ion-input>
+          </div>
+          <div>
+            <ion-input [(ngModel)]="phoneNumber" type="number" ngModel required style="border-bottom: 2px solid green; height: 40px; width: 100% !important;"></ion-input>
+          </div>
+        </div>
+        <div style="margin-top: 30px;"><ion-label color="danger">{{err_msg}}</ion-label></div>
+    </div>
+
+    <div class="sign-up-btn">
+      <ion-button class="bordered-btn" center color="primary" (click)="verifyPhone()">Next</ion-button>      
+      <!-- <ion-button class="bordered-btn" center color="primary" routerLink="/signup2" routerDirection="root">Next</ion-button> -->
+    </div>
+  </ion-content>
+  

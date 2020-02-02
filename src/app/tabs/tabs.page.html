@@ -1,0 +1,28 @@
+<div style="text-align: center; width: 100%; display: block" routerLink="/addgrocery" routerDirection="root">
+  <img *ngIf="!flag" src="../assets/icon/icon_blue_plus.png" style="position: absolute; bottom: 4%; z-index: 100; left: 42%">
+</div>
+
+<ion-tabs class="tab_color">
+  <ion-tab-bar slot="bottom" >
+    <ion-tab-button tab="grocery" (click)="tabSelect(1)">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Basket</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="history" (click)="tabSelect(2)">
+      <ion-icon name="cash"></ion-icon>
+      <ion-label>Transaction</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="circle" (click)="tabSelect(3)">
+      <ion-icon name="people"></ion-icon>
+      <ion-label>Circle</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notification_alert" (click)="tabSelect(4)">
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label>Notification</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

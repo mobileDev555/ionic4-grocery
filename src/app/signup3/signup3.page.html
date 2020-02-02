@@ -1,0 +1,31 @@
+<ion-content padding>
+    <ion-label color="primary">
+      <div style="margin-top: 20px;">
+        <h1 style="font-weight: bold;">Create Profile</h1>
+      </div>
+    </ion-label>
+  
+    <div style="margin-top: 30px;">
+        <ion-label>
+          Please provide your name and an optional profile photo
+        </ion-label>
+    </div>
+
+    <form #newProfileForm="ngForm" (ngSubmit)="this.onProfileSubmit(newProfileForm)">
+      <div style="margin-top: 30px; display: flex; flex-direction: row; " (click)="selectImage()">   
+        <img *ngIf="croppedImagepath.length" [src]="croppedImagepath" style="width: 70px;height: 70px;border-radius: 35px; border:2px solid green;">  
+        <img *ngIf="!croppedImagepath.length" src="../../assets/png/ic_profile_green.png" style="width: 70px;height: 70px;">  
+          
+        <ion-text style="margin-left: 20px; margin-top: 30px;" color="primary">Profile picture</ion-text>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <ion-input placeholder="Type your name here" class="input_c" autofocus="true" name="name" ngModel required ></ion-input>
+      </div>
+
+      <div class="sign-up-btn">
+        <ion-button class="bordered-btn" center color="primary" type="submit">Finish</ion-button>
+      </div>
+    </form>
+  </ion-content>
+  

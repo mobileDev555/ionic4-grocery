@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Notification
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content>  
+      
+    <div style="display: flex; flex-direction: column;">
+      <ion-list-header style="font-size: 20px; color: green; font-weight: bolder;">Notifications</ion-list-header> 
+      <ion-list lines="none">  
+        <ion-item *ngFor="let notifs of notificationList" style="display: flex; width: 100%; justify-items: center;">  
+            <ion-card style="display: flex; flex-direction: row; justify-content: center; padding: 10px !important; width: 100%; min-width: 340px !important;">   
+              <img src="{{notifs.img}}" style="width: 80px !important; margin-right: 15% !important;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <ion-label style="margin-top: 10px;">{{notifs.target}}</ion-label>  
+                <ion-label style="font-size: 15px;margin-top: 10px;">{{notifs.item_name}}</ion-label>  
+                <ion-label style="font-size: 15px;margin-top: 10px;">{{notifs.requestTime}} ago</ion-label>  
+              </div>
+            </ion-card>
+        </ion-item>  
+      </ion-list>  
+    </div>
+    
+</ion-content>
